@@ -1,0 +1,46 @@
+{
+  "questions":[
+    {
+      "result": false,
+      "question": "Chicago was founded in 1472"
+    },
+
+    {
+      "result": true,
+      "question": "The tallest building in Chicago is the Willis Tower"
+    },
+    {
+      "result": true,
+      "question": "Chicago is known as the Windy City"
+    },
+    {
+      "result": true,
+      "question": "Barack Obama was a Chicago resident"
+    },
+    {
+      "result": true,
+      "question": "Chicago is located on the shores of freshwater Lake Michigan"
+    },
+    {
+      "result": false,
+      "question": "Chicago is the capital of Illinois"
+    },
+
+    {
+      "result": false,
+      "question": "Chicago is the biggest city in the US"
+    },
+    {
+      "result": false,
+      "question": "Chicago is located on the shores of freshwater Lake Ontario"
+    },
+    {
+      "result": true,
+      "question": "Walt Disney was born in the Hermosa neighborhood of Chicago in 1901"
+    },
+    {
+      "result": true,
+      "question": "Chicago was founded in 1833"
+    }
+  ]
+}

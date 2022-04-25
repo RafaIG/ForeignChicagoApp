@@ -1,6 +1,7 @@
 package com.example.foreignchicagoapp;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -12,18 +13,24 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class QuizActivity extends AppCompatActivity {
 
     TextView txtView;
     TextView textTimer;
 
-    ArrayList<String> stringList = new ArrayList<String>();
+    ArrayList<Question> questionList = new ArrayList<Question>();
+    private boolean[] correctAnswers = new boolean[]{false, false, false, false, false};
 
     static int questionNum = 0;
 
@@ -34,8 +41,6 @@ public class QuizActivity extends AppCompatActivity {
     private boolean stop;
     private long start = System.currentTimeMillis();
     Thread thread;
-
-    private boolean[] correctAnswers = {true,false,true,false,true};
 
     ImageView image;
 
@@ -50,14 +55,14 @@ public class QuizActivity extends AppCompatActivity {
         thread=null;
 
         readQuestions();
-        stringList.add("a");
-        stringList.add("a");
-        stringList.add("a");
-        stringList.add("a");
-        stringList.add("a");
+        Collections.shuffle(questionList);
+
+        correctAnswers = new boolean[]{questionList.get(0).isResult(),
+                questionList.get(1).isResult(), questionList.get(2).isResult(),
+                questionList.get(3).isResult(), questionList.get(4).isResult()};
 
         txtView = findViewById(R.id.textView1);
-        txtView.setText(stringList.get(0));
+        txtView.setText(questionList.get(0).getQuestion());
 
         thread = new Thread() {
             @Override
@@ -83,22 +88,41 @@ public class QuizActivity extends AppCompatActivity {
         startQuiz();
     }
 
-    public void readQuestions() {
-        BufferedReader reader = new BufferedReader(new FileReader("@raw/"));
-        String json = "";
-        try {
-            StringBuilder sb = new StringBuilder();
-            String line = reader.readLine();
 
-            while (line != null) {
-                sb.append(line);
-                sb.append("\n");
-                line = reader.readLine();
+    public void readQuestions() {
+        try {
+            JSONObject obj = new JSONObject(loadJSONFromAsset());
+            JSONArray m_jArry = obj.getJSONArray("questions");
+            questionList = new ArrayList<Question>();
+
+            for (int i = 0; i < m_jArry.length(); i++) {
+                JSONObject jo_inside = m_jArry.getJSONObject(i);
+                Log.d("QUIZ", jo_inside.getString("question"));
+                String question = jo_inside.getString("question");
+                Boolean result = jo_inside.getBoolean("result");
+
+                //Add your values in your `ArrayList` as below:
+                questionList.add(new Question(question, result));
             }
-            json = sb.toString();
-        } finally {
-            reader.close();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+    }
+
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = QuizActivity.this.getAssets().open("quiz_questions.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
     }
 
     public void startQuiz() {
@@ -125,33 +149,27 @@ public class QuizActivity extends AppCompatActivity {
                 // find the radiobutton by returned id
                 radioButton = findViewById(selectedId);
 
-                switch (questionNum) {
-                    case 0:
-                    case 2:
-                        showResult("True",questionNum);
-                        break;
-                    case 1:
-                    case 3:
-                    case 4:
-                        showResult("False",questionNum);
-                        break;
-                }//end switch
+                showResult(String.valueOf(questionList.get(questionNum).isResult()),
+                        questionNum);
             }
         });
         imageListener();
     }//end buttonListener
 
     public void showResult(String result, int questionNum){
-        if (radioButton.getText().equals(result)) {
+        if (radioButton.getText().toString().equalsIgnoreCase(result))
             Toast.makeText(QuizActivity.this,
-                    " Right!", Toast.LENGTH_LONG).show();
+                    " Right!", Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(QuizActivity.this,
+                    " Wrong!", Toast.LENGTH_SHORT).show();
+    }
+
+    public void checkResult(String result, int questionNum){
+        if (radioButton.getText().toString().equalsIgnoreCase(result))
             correctAnswers[questionNum] = true;
-        }
-        else {
-            Toast.makeText(QuizActivity.this,
-                    " Wrong!", Toast.LENGTH_LONG).show();
+        else
             correctAnswers[questionNum] = false;
-        }
     }
 
     public void imageListener() {
@@ -161,35 +179,68 @@ public class QuizActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                // get new question for viewing
-                if (questionNum == 4) {
-                    stop = true;
-                    //reset count to -1 to start first question again
-                    rb = findViewById(R.id.ratingBar);
-                    rb.setRating(Arrays.toString(correctAnswers).replaceAll("[^t]",
-                            "").length());
-                    findViewById(R.id.ratingBar).setVisibility(View.VISIBLE);
-                    textTimer.setText("You have finished with a time of : "+
-                            new SimpleDateFormat("mm:ss").format(
-                                    System.currentTimeMillis() - start)+
-                            "\nPlease click in next to start again the quiz.");
-                    questionNum++;
-                }
-                else if (questionNum > 4) {
+                if (questionNum > 4) {
                     start = System.currentTimeMillis();
                     stop = false;
                     findViewById(R.id.ratingBar).setVisibility(View.INVISIBLE);
                     questionNum = 0;
-                    txtView.setText(stringList.get(++questionNum));
+                    Collections.shuffle(questionList);
+                    txtView.setText(questionList.get(++questionNum).getQuestion());
                     radioQuestions.check(R.id.radioTrue);
                 }
                 else {
-                    txtView.setText(stringList.get(++questionNum));
-                    //reset radio button (radioTrue) to default
-                    radioQuestions.check(R.id.radioTrue);
+                    int selectedId = radioQuestions.getCheckedRadioButtonId();
+                    radioButton = findViewById(selectedId);
+                    checkResult(String.valueOf(questionList.get(questionNum).isResult()),
+                            questionNum);
+                    // get new question for viewing
+                    if (questionNum == 4) {
+                        stop = true;
+                        //reset count to -1 to start first question again
+                        rb = findViewById(R.id.ratingBar);
+                        rb.setRating(Arrays.toString(correctAnswers).replaceAll("[^t]",
+                                "").length());
+                        findViewById(R.id.ratingBar).setVisibility(View.VISIBLE);
+                        textTimer.setText("You have finished with a time of : " +
+                                new SimpleDateFormat("mm:ss").format(
+                                        System.currentTimeMillis() - start) +
+                                "\nPlease click in the next icon to start again the quiz.");
+                        questionNum++;
+                    } else {
+                        txtView.setText(questionList.get(++questionNum).getQuestion());
+                        //reset radio button (radioTrue) to default
+                        radioQuestions.check(R.id.radioTrue);
+                    }
                 }
             }
         });
     }
 
+}
+
+class Question {
+
+    private String question;
+    private boolean result;
+
+    public Question(String question, boolean result){
+        this.question = question;
+        this.result = result;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public boolean isResult() {
+        return result;
+    }
+
+    public void setResult(boolean result) {
+        this.result = result;
+    }
 }

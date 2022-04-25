@@ -8,5 +8,5 @@
 
     <string name="quiz_radio_true">True</string>
     <string name="quiz_radio_false">False</string>
-    <string name="quiz_btn_display">Display Results</string>
+    <string name="quiz_btn_display">Check Question</string>
 </resources>
