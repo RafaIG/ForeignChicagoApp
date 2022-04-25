@@ -12,7 +12,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="120dp"
         android:layout_marginTop="32dp"
         android:text="@string/chooseActivity"
         android:textSize="20sp"
@@ -20,15 +20,71 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/butttonTest"
+        android:id="@+id/buttonQuiz"
         android:layout_width="162dp"
         android:layout_height="85dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="52dp"
+        android:layout_weight="1"
+        android:drawableTop="@android:drawable/btn_star_big_on"
+        android:text="@string/main_quiz"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/butttonTest2"
+        android:layout_width="162dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="52dp"
         android:layout_weight="1"
         android:drawableTop="@android:drawable/btn_star_big_on"
         android:text="@string/buttonTest"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonQuiz"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/butttonTest3"
+        android:layout_width="162dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="40dp"
+        android:layout_weight="1"
+        android:drawableTop="@android:drawable/btn_star_big_on"
+        android:text="@string/buttonTest"
+        app:layout_constraintStart_toStartOf="@+id/buttonQuiz"
+        app:layout_constraintTop_toBottomOf="@+id/buttonQuiz" />
+
+    <Button
+        android:id="@+id/butttonTest4"
+        android:layout_width="162dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="40dp"
+        android:layout_weight="1"
+        android:drawableTop="@android:drawable/btn_star_big_on"
+        android:text="@string/buttonTest"
+        app:layout_constraintStart_toStartOf="@+id/butttonTest2"
+        app:layout_constraintTop_toBottomOf="@+id/butttonTest2" />
+
+    <Button
+        android:id="@+id/butttonTest5"
+        android:layout_width="162dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="40dp"
+        android:layout_weight="1"
+        android:drawableTop="@android:drawable/btn_star_big_on"
+        android:text="@string/buttonTest"
+        app:layout_constraintStart_toStartOf="@+id/butttonTest3"
+        app:layout_constraintTop_toBottomOf="@+id/butttonTest3" />
+
+    <Button
+        android:id="@+id/butttonTest6"
+        android:layout_width="162dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="40dp"
+        android:layout_weight="1"
+        android:drawableTop="@android:drawable/btn_star_big_on"
+        android:text="@string/buttonTest"
+        app:layout_constraintStart_toStartOf="@+id/butttonTest4"
+        app:layout_constraintTop_toBottomOf="@+id/butttonTest3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
