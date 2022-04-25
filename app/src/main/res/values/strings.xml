@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ForeignChicagoApp</string>
+    <string name="chooseActivity">Choose an activity!</string>
+    <string name="buttonTest">Test</string>
 </resources>
