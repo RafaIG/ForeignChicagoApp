@@ -1,7 +1,5 @@
 package com.example.foreignchicagoapp;
 
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,11 +12,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -49,9 +42,6 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        //BackgroundTask bt = new BackgroundTask();
-        //bt.execute("http://www.papademas.net:81/sample.txt"); //grab url
-
         start = System.currentTimeMillis();
         textTimer = findViewById(R.id.textTimer);
         stop =false;
@@ -62,6 +52,9 @@ public class QuizActivity extends AppCompatActivity {
         stringList.add("a");
         stringList.add("a");
         stringList.add("a");
+
+        txtView = findViewById(R.id.textView1);
+        txtView.setText(stringList.get(0));
 
         thread = new Thread() {
             @Override
@@ -84,56 +77,9 @@ public class QuizActivity extends AppCompatActivity {
             }
         };
         thread.start();
-    }//end onCreate
+        startQuiz();
+    }
 
-    //background process to download the file from internet
-    /*private class BackgroundTask extends AsyncTask<String, Integer, Void> {
-
-        protected void onPreExecute() {
-        }
-
-        protected Void doInBackground(String... params) {
-            URL url;
-            String StringBuffer = null;
-            try {
-                //create url object to point to the file location on internet
-                url = new URL(params[0]);
-                //make a request to server
-                HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                //get InputStream instance
-                InputStream is = con.getInputStream();
-                //create BufferedReader object
-                BufferedReader br = new BufferedReader(new InputStreamReader(is));
-
-                //read content of the file line by line & add it to Stringbuffer
-                int i = 0;
-                while ((StringBuffer = br.readLine()) != null) {
-                    Thread.sleep(500);
-                    int prog = 40 + 10*++i;
-                    stringList.add(StringBuffer);  //add to Arraylist
-                }
-
-                br.close();
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-
-        protected void onPostExecute(Void result) {
-            txtView = findViewById(R.id.textView1);
-            //display read text in TextVeiw
-            txtView.setText(stringList.get(0));
-            pd.setMessage("Loading 100");
-            pd.cancel();
-            startQuiz();
-        }
-    }//end BackgroundTask class
-*\
-
-     */
     public void startQuiz() {
         buttonListener();
     }
