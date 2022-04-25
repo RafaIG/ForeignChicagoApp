@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,6 +49,7 @@ public class QuizActivity extends AppCompatActivity {
         stop =false;
         thread=null;
 
+        readQuestions();
         stringList.add("a");
         stringList.add("a");
         stringList.add("a");
@@ -78,6 +81,24 @@ public class QuizActivity extends AppCompatActivity {
         };
         thread.start();
         startQuiz();
+    }
+
+    public void readQuestions() {
+        BufferedReader reader = new BufferedReader(new FileReader("@raw/"));
+        String json = "";
+        try {
+            StringBuilder sb = new StringBuilder();
+            String line = reader.readLine();
+
+            while (line != null) {
+                sb.append(line);
+                sb.append("\n");
+                line = reader.readLine();
+            }
+            json = sb.toString();
+        } finally {
+            reader.close();
+        }
     }
 
     public void startQuiz() {
