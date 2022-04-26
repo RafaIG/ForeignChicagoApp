@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="mainBackground">#BADCBA</color>
+    <color name="mainTheme">#2A4f29</color>
+    <color name="secondTheme">#224021</color>
+
 </resources>
