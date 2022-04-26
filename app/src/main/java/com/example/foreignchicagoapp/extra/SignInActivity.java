@@ -1,4 +1,4 @@
-package com.example.foreignchicagoapp;
+package com.example.foreignchicagoapp.extra;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.foreignchicagoapp.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -70,7 +71,7 @@ public class SignInActivity extends AppCompatActivity {
         {
             // When user already sign in
             // redirect to profile activity
-            startActivity(new Intent(SignInActivity.this,ProfileActivity.class)
+            startActivity(new Intent(SignInActivity.this, ProfileActivity.class)
                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         }
     }

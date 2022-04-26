@@ -1,4 +1,4 @@
-package com.example.foreignchicagoapp;
+package com.example.foreignchicagoapp.extra;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,36 +12,37 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.foreignchicagoapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Login2Activity extends AppCompatActivity {
+public class RegistrationActivity extends AppCompatActivity {
 
     private EditText emailTV, passwordTV;
-    private Button loginBtn;
+    private Button regBtn;
     private ProgressBar progressBar;
 
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login2);
+        setContentView(R.layout.activity_registration);
 
         mAuth = FirebaseAuth.getInstance();
 
         initializeUI();
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
+        regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginUserAccount();
+                registerNewUser();
             }
         });
     }
 
-    private void loginUserAccount() {
+    private void registerNewUser() {
         progressBar.setVisibility(View.VISIBLE);
 
         String email, password;
@@ -57,19 +58,19 @@ public class Login2Activity extends AppCompatActivity {
             return;
         }
 
-        mAuth.signInWithEmailAndPassword(email, password)
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
 
-                            Intent intent = new Intent(Login2Activity.this, DashboardActivity.class);
+                            Intent intent = new Intent(RegistrationActivity.this, Login2Activity.class);
                             startActivity(intent);
                         }
                         else {
-                            Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Registration failed! Please try again later", Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
                         }
                     }
@@ -79,8 +80,7 @@ public class Login2Activity extends AppCompatActivity {
     private void initializeUI() {
         emailTV = findViewById(R.id.email);
         passwordTV = findViewById(R.id.password);
-
-        loginBtn = findViewById(R.id.login);
+        regBtn = findViewById(R.id.register);
         progressBar = findViewById(R.id.progressBar);
     }
 }

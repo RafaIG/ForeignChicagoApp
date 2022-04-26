@@ -7,6 +7,9 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.foreignchicagoapp.extra.Login2Activity;
+import com.example.foreignchicagoapp.extra.RegistrationActivity;
+
 public class InitialActivity extends AppCompatActivity {
 
     Button registerBtn, loginBtn;

@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="16dp"
-    tools:context=".ProfileActivity">
+    tools:context=".extra.ProfileActivity">
 
     <ImageView
         android:layout_width="150dp"

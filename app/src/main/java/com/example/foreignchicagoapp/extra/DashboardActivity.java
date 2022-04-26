@@ -1,8 +1,10 @@
-package com.example.foreignchicagoapp;
+package com.example.foreignchicagoapp.extra;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.foreignchicagoapp.R;
 
 public class DashboardActivity extends AppCompatActivity {
 
