@@ -9,8 +9,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button buttonQuiz;
-    Button buttonWeather;
+    private Button buttonQuiz, buttonWeather, buttonPhotos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +29,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), WeatherActivity.class));
+            }
+        });
+
+        buttonPhotos = (Button) findViewById(R.id.buttonPhoto);
+        buttonPhotos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), PhotoActivity.class));
             }
         });
     }

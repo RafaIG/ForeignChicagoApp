@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#CDF3C5"
+    android:background="@color/mainBackground"
+    android:backgroundTint="@color/mainBackground"
     android:orientation="vertical">
 
     <TextView
@@ -41,14 +42,6 @@
         android:layout_height="wrap_content"
         android:text="@string/quiz_btn_display" />
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="218dp"
-        android:layout_height="77dp"
-        android:clickable="true"
-        android:src="@drawable/quiz_next"
-        tools:ignore="SpeakableTextPresentCheck" />
-
     <TextView
         android:id="@+id/textTimer"
         android:layout_width="wrap_content"
@@ -56,11 +49,20 @@
 
     <RatingBar
         android:id="@+id/ratingBar"
+        style="@style/Widget.AppCompat.RatingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:isIndicator="true"
         android:numStars="5"
         android:rating="2.0"
         android:stepSize="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:clickable="true"
+        android:src="@drawable/quiz_next"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </LinearLayout>

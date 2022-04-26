@@ -8,6 +8,7 @@
     android:orientation="vertical"
     android:padding="25dp">
 
+
     <RelativeLayout
         android:id="@+id/mainContainer"
         android:layout_width="match_parent"
@@ -17,7 +18,7 @@
         <LinearLayout
             android:id="@+id/addressContainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="109dp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -26,22 +27,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="DHAKA, BD"
-                android:textSize="24dp" />
+                android:textSize="34sp" />
 
             <TextView
                 android:id="@+id/updated_at"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="20 April 2012, 20:08 PM"
-                android:textSize="14dp" />
+                android:textSize="16sp" />
         </LinearLayout>
 
 
         <LinearLayout
             android:id="@+id/overviewContainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_height="256dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="142dp"
+            android:layout_marginBottom="283dp"
             android:orientation="vertical">
 
             <TextView
@@ -86,12 +90,13 @@
 
         </LinearLayout>
 
-
         <LinearLayout
             android:id="@+id/detailsContainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="285dp"
+            android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
+            android:layout_marginTop="396dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -327,7 +332,6 @@
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
-
 
     <ProgressBar
         android:id="@+id/loader"

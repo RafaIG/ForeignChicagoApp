@@ -1,4 +1,4 @@
-package com.example.foreignchicagoapp;
+package com.example.foreignchicagoapp.extra;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,8 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.foreignchicagoapp.extra.Login2Activity;
-import com.example.foreignchicagoapp.extra.RegistrationActivity;
+import com.example.foreignchicagoapp.R;
 
 public class InitialActivity extends AppCompatActivity {
 

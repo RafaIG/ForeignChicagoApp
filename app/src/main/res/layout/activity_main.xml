@@ -1,101 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mainBackground"
-    android:backgroundTint="#BADCBA"
-    tools:context=".MainActivity">
+    android:overScrollMode="never"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="0dp">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="245dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="36dp"
-        android:text="@string/chooseActivity"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/mainBackground"
+        android:backgroundTint="#BADCBA"
+        tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/buttonQuiz"
-        android:layout_width="162dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
-        android:layout_weight="1"
-        android:drawableTop="@android:drawable/btn_star_big_on"
-        android:text="@string/main_quiz"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="245dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="36dp"
+            android:text="@string/chooseActivity"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/buttonWeather"
-        android:layout_width="162dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="20dp"
-        android:layout_weight="1"
-        android:drawableTop="@android:drawable/ic_menu_mapmode"
-        android:text="@string/main_weather"
-        app:layout_constraintStart_toEndOf="@+id/buttonQuiz"
-        app:layout_constraintTop_toTopOf="@+id/buttonQuiz" />
+        <Button
+            android:id="@+id/buttonQuiz"
+            android:layout_width="162dp"
+            android:layout_height="85dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:drawableTop="@android:drawable/btn_star_big_on"
+            android:text="@string/main_quiz"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <Button
-        android:id="@+id/buttonFacts"
-        android:layout_width="162dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="40dp"
-        android:layout_weight="1"
-        android:drawableTop="@android:drawable/ic_dialog_info"
-        android:text="@string/main_facts"
-        app:layout_constraintStart_toStartOf="@+id/buttonQuiz"
-        app:layout_constraintTop_toBottomOf="@+id/buttonQuiz" />
+        <Button
+            android:id="@+id/buttonWeather"
+            android:layout_width="162dp"
+            android:layout_height="85dp"
+            android:layout_marginStart="20dp"
+            android:layout_weight="1"
+            android:drawableTop="@android:drawable/ic_menu_mapmode"
+            android:text="@string/main_weather"
+            app:layout_constraintStart_toEndOf="@+id/buttonQuiz"
+            app:layout_constraintTop_toTopOf="@+id/buttonQuiz" />
 
-    <Button
-        android:id="@+id/butttonTest4"
-        android:layout_width="162dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="40dp"
-        android:layout_weight="1"
-        android:drawableTop="@android:drawable/btn_star_big_on"
-        android:text="@string/buttonTest"
-        app:layout_constraintStart_toStartOf="@+id/buttonWeather"
-        app:layout_constraintTop_toBottomOf="@+id/buttonWeather" />
+        <Button
+            android:id="@+id/buttonFacts"
+            android:layout_width="162dp"
+            android:layout_height="85dp"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:drawableTop="@android:drawable/ic_dialog_info"
+            android:text="@string/main_facts"
+            app:layout_constraintStart_toStartOf="@+id/buttonQuiz"
+            app:layout_constraintTop_toBottomOf="@+id/buttonQuiz" />
 
-    <Button
-        android:id="@+id/butttonTest5"
-        android:layout_width="162dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="40dp"
-        android:layout_weight="1"
-        android:drawableTop="@android:drawable/btn_star_big_on"
-        android:text="@string/buttonTest"
-        app:layout_constraintStart_toStartOf="@+id/buttonFacts"
-        app:layout_constraintTop_toBottomOf="@+id/buttonFacts" />
+        <Button
+            android:id="@+id/buttonPhoto"
+            android:layout_width="162dp"
+            android:layout_height="85dp"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:drawableTop="@android:drawable/button_onoff_indicator_on"
+            android:text="@string/main_photos"
+            app:layout_constraintStart_toStartOf="@+id/buttonWeather"
+            app:layout_constraintTop_toBottomOf="@+id/buttonWeather" />
 
-    <Button
-        android:id="@+id/butttonTest6"
-        android:layout_width="162dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="40dp"
-        android:layout_weight="1"
-        android:drawableTop="@android:drawable/btn_star_big_on"
-        android:text="@string/buttonTest"
-        app:layout_constraintStart_toStartOf="@+id/butttonTest4"
-        app:layout_constraintTop_toBottomOf="@+id/buttonFacts" />
+        <Button
+            android:id="@+id/butttonTest5"
+            android:layout_width="162dp"
+            android:layout_height="85dp"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:drawableTop="@android:drawable/btn_star_big_on"
+            android:text="@string/buttonTest"
+            app:icon="@drawable/icon_chicago"
+            app:iconGravity="top"
+            app:iconSize="28dp"
+            app:layout_constraintStart_toStartOf="@+id/buttonFacts"
+            app:layout_constraintTop_toBottomOf="@+id/buttonFacts" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="264dp"
-        android:layout_height="175dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/butttonTest5"
-        app:srcCompat="@drawable/flag_chicago" />
+        <Button
+            android:id="@+id/butttonTest6"
+            android:layout_width="162dp"
+            android:layout_height="85dp"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:drawableTop="@android:drawable/btn_star_big_on"
+            android:text="@string/buttonTest"
+            app:layout_constraintStart_toStartOf="@+id/buttonPhoto"
+            app:layout_constraintTop_toBottomOf="@+id/buttonFacts" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="264dp"
+            android:layout_height="175dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/butttonTest5"
+            app:srcCompat="@drawable/flag_chicago" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="28dp"
+            android:text="TextView"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

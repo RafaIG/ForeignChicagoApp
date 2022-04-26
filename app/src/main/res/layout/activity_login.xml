@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C2E6DC"
+    android:background="@color/mainBackground"
     tools:context=".LoginActivity">
 
     <com.google.android.gms.common.SignInButton
@@ -93,12 +93,12 @@
         android:id="@+id/textView4"
         android:layout_width="293dp"
         android:layout_height="29dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="12dp"
         android:text="Or sign in with Google"
         android:textAlignment="center"
         android:textColor="@color/colorText"
         app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonLoginEmail" />
 
     <TextView
         android:id="@+id/textView5"

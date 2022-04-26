@@ -7,6 +7,7 @@
     <string name="main_quiz">Quiz</string>
     <string name="main_facts">Chicago Facts</string>
     <string name="main_weather">Weather</string>
+    <string name="main_photos">Art Institute Photos</string>
 
     <string name="quiz_radio_true">True</string>
     <string name="quiz_radio_false">False</string>

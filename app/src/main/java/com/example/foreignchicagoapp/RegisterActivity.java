@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,14 +25,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-public class LoginActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
-    private EditText emailText, passwordText;
-    private Button buttonLogin, buttonRegister;
+    private EditText emailText, passwordText, repeatPasswordText;
+    private Button buttonRegister;
     private SignInButton buttonSignIn;
-    private ProgressBar progressBar;
-
-    private int attempts;
 
     private FirebaseAuth mAuth;
     private GoogleSignInClient googleSignInClient;
@@ -41,22 +37,20 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
 
         mAuth = FirebaseAuth.getInstance();
 
-        attempts = 3;
 
         emailText = findViewById(R.id.editEmail);
         passwordText = findViewById(R.id.editPassword);
+        repeatPasswordText = findViewById(R.id.editRepeatPassword);
+        buttonRegister = findViewById(R.id.buttonRegister);
 
-        buttonLogin = findViewById(R.id.buttonLoginEmail);
-        progressBar = findViewById(R.id.progressBarLogin);
-
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
+        buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginUserAccount();
+                registerNewUser();
             }
         });
 
@@ -66,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         ).requestIdToken("558528812246-pl8vmao3ruaejevii1rvktkubls46t3j.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
-        googleSignInClient= GoogleSignIn.getClient(LoginActivity.this
+        googleSignInClient= GoogleSignIn.getClient(RegisterActivity.this
                 ,googleSignInOptions);
         buttonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,52 +71,38 @@ public class LoginActivity extends AppCompatActivity {
                 startActivityForResult(intent,100);
             }
         });
-
-        buttonRegister = (Button) findViewById(R.id.buttonRegister);
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
-            }
-        });
     }
 
-    private void loginUserAccount() {
-        progressBar.setVisibility(View.VISIBLE);
+    private void registerNewUser() {
         String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
+        String passwordRepeat = repeatPasswordText.getText().toString();
 
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Please enter your email!", Toast.LENGTH_LONG).show();
-            progressBar.setVisibility(View.GONE);
             return;
         }
-        if (TextUtils.isEmpty(password)) {
+        if (TextUtils.isEmpty(password) || TextUtils.isEmpty(passwordRepeat) ) {
             Toast.makeText(getApplicationContext(), "Please enter your password!", Toast.LENGTH_LONG).show();
-            progressBar.setVisibility(View.GONE);
+            return;
+        }
+        if (!TextUtils.equals(password, passwordRepeat)) {
+            Toast.makeText(getApplicationContext(), "Passwords must be the same!", Toast.LENGTH_LONG).show();
             return;
         }
 
-        mAuth.signInWithEmailAndPassword(email, password)
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
-                            progressBar.setVisibility(View.GONE);
-
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                             startActivity(intent);
                             finish();
                         }
-                        else {
-                            if (--attempts == 0)
-                                finish();
-                            Toast.makeText(getApplicationContext(),
-                                    String.format("Wrong Credentials.\nYou have %d attempts left.",attempts),
-                                    Toast.LENGTH_LONG).show();
-                            progressBar.setVisibility(View.GONE);
-                        }
+                        else
+                            Toast.makeText(getApplicationContext(), "Registration failed! Please try again later", Toast.LENGTH_LONG).show();
                     }
                 });
     }
@@ -158,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         // Check condition
                                         if(task.isSuccessful()) {
-                                            startActivity(new Intent(LoginActivity.this
+                                            startActivity(new Intent(RegisterActivity.this
                                                     ,MainActivity.class)
                                                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                                             Toast.makeText(getApplicationContext(),"Firebase authentication successful",Toast.LENGTH_SHORT).show();
@@ -177,5 +157,4 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
-
 }
