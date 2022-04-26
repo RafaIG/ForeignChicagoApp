@@ -39,7 +39,7 @@
         android:layout_height="85dp"
         android:layout_marginStart="20dp"
         android:layout_weight="1"
-        android:drawableTop="@android:drawable/btn_star_big_on"
+        android:drawableTop="@android:drawable/ic_menu_mapmode"
         android:text="@string/main_weather"
         app:layout_constraintStart_toEndOf="@+id/buttonQuiz"
         app:layout_constraintTop_toTopOf="@+id/buttonQuiz" />
@@ -50,7 +50,7 @@
         android:layout_height="85dp"
         android:layout_marginTop="40dp"
         android:layout_weight="1"
-        android:drawableTop="@android:drawable/btn_star_big_on"
+        android:drawableTop="@android:drawable/ic_dialog_info"
         android:text="@string/main_facts"
         app:layout_constraintStart_toStartOf="@+id/buttonQuiz"
         app:layout_constraintTop_toBottomOf="@+id/buttonQuiz" />

@@ -57,6 +57,7 @@ public class WeatherActivity  extends AppCompatActivity {
         }
 
         protected String doInBackground(String... args) {
+            //String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API);
             String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API);
             return response;
         }

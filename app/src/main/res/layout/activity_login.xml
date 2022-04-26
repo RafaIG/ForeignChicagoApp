@@ -7,12 +7,20 @@
     android:background="#C2E6DC"
     tools:context=".LoginActivity">
 
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="204dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toStartOf="@+id/editUsername"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
+
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="104dp"
         android:backgroundTint="#2A432D"
         android:onClick="onClick"
         android:text="Login"
@@ -24,25 +32,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="196dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
         android:id="@+id/editPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editUsername"
         app:layout_constraintTop_toBottomOf="@+id/editUsername" />
 
     <TextView
@@ -50,7 +57,7 @@
         android:layout_width="286dp"
         android:layout_height="42dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:text="Please insert your credentials."
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,13 +67,12 @@
         android:id="@+id/textView2"
         android:layout_width="248dp"
         android:layout_height="64dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginStart="80dp"
         android:text="Welcome to Foreign Chicago App"
         android:textAlignment="center"
         android:textColor="#1F301C"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/editUsername"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="40dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

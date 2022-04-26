@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "558528812246",
+    "project_id": "foreignchicagoapp",
+    "storage_bucket": "foreignchicagoapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:558528812246:android:0dfaa4a6a1cbc973fee577",
+        "android_client_info": {
+          "package_name": "com.example.foreignchicagoapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "558528812246-mehg19o58bj40p0rv7fpfgfs5kkels6d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.foreignchicagoapp",
+            "certificate_hash": "83993f5436dcb70726adb9dc1ea4a581a38b7724"
+          }
+        },
+        {
+          "client_id": "558528812246-9dbot85inoft5vqiv1epdbrjgr7cvorj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzC9cteUV5mv5chJIqMbfj2uOiJ9VjNqM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "558528812246-9dbot85inoft5vqiv1epdbrjgr7cvorj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
