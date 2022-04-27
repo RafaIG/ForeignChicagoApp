@@ -12,4 +12,10 @@
     <string name="quiz_radio_true">True</string>
     <string name="quiz_radio_false">False</string>
     <string name="quiz_btn_display">Check Question</string>
+    <string name="buttonForum">Forum</string>
+    <string name="buttonCalculatorMetrics">Convert Imperial-Metric</string>
+    <string name="buttonAtractions">Attractions Hours</string>
+    <string name="buttonNews">Chicago News</string>
+    <string name="buttonFAQ">F.A.Q.</string>
+    <string name="buttonContact">Contact us!</string>
 </resources>

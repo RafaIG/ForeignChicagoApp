@@ -16,8 +16,8 @@
 
     <TextView
         android:id="@+id/textTitle"
-        android:layout_width="238dp"
-        android:layout_height="68dp"
+        android:layout_width="259dp"
+        android:layout_height="56dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:autoSizeMaxTextSize="100sp"
@@ -34,7 +34,7 @@
         android:layout_width="385dp"
         android:layout_height="646dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:scaleType="fitStart"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textTitle"
@@ -42,12 +42,12 @@
 
     <Button
         android:id="@+id/buttonReloadImage"
-        android:layout_width="119dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="268dp"
+        android:layout_width="111dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="Reload Image"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="New Artwork"
+        app:layout_constraintStart_toEndOf="@+id/textTitle"
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

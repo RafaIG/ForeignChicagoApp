@@ -20,7 +20,7 @@
             android:layout_width="245dp"
             android:layout_height="54dp"
             android:layout_marginStart="80dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="32dp"
             android:text="@string/chooseActivity"
             android:textAlignment="center"
             android:textSize="20sp"
@@ -33,8 +33,9 @@
             android:layout_width="162dp"
             android:layout_height="85dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="24dp"
             android:layout_weight="1"
+            android:backgroundTint="#ACAA24"
             android:drawableTop="@android:drawable/btn_star_big_on"
             android:text="@string/main_quiz"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,6 +47,7 @@
             android:layout_height="85dp"
             android:layout_marginStart="20dp"
             android:layout_weight="1"
+            android:backgroundTint="#0F1C6C"
             android:drawableTop="@android:drawable/ic_menu_mapmode"
             android:text="@string/main_weather"
             app:layout_constraintStart_toEndOf="@+id/buttonQuiz"
@@ -57,8 +59,13 @@
             android:layout_height="85dp"
             android:layout_marginTop="40dp"
             android:layout_weight="1"
-            android:drawableTop="@android:drawable/ic_dialog_info"
+            android:backgroundTint="#3EB6B6"
             android:text="@string/main_facts"
+            app:icon="@drawable/flag_chicago"
+            app:iconGravity="top"
+            app:iconSize="24dp"
+            app:iconTint="@color/common_google_signin_btn_text_dark_disabled"
+            app:iconTintMode="add"
             app:layout_constraintStart_toStartOf="@+id/buttonQuiz"
             app:layout_constraintTop_toBottomOf="@+id/buttonQuiz" />
 
@@ -66,46 +73,99 @@
             android:id="@+id/buttonPhoto"
             android:layout_width="162dp"
             android:layout_height="85dp"
-            android:layout_marginTop="40dp"
             android:layout_weight="1"
-            android:drawableTop="@android:drawable/button_onoff_indicator_on"
+            android:backgroundTint="#650D0D"
             android:text="@string/main_photos"
+            app:icon="@drawable/icon_artinstitute"
+            app:iconSize="28dp"
+            app:iconTint="@color/black"
+            app:iconTintMode="add"
             app:layout_constraintStart_toStartOf="@+id/buttonWeather"
-            app:layout_constraintTop_toBottomOf="@+id/buttonWeather" />
+            app:layout_constraintTop_toTopOf="@+id/buttonFacts" />
 
         <Button
-            android:id="@+id/butttonTest5"
+            android:id="@+id/buttonForum"
             android:layout_width="162dp"
             android:layout_height="85dp"
             android:layout_marginTop="40dp"
             android:layout_weight="1"
             android:drawableTop="@android:drawable/btn_star_big_on"
-            android:text="@string/buttonTest"
-            app:icon="@drawable/icon_chicago"
+            android:text="@string/buttonForum"
+            app:icon="@mipmap/ic_launcher_foreground"
             app:iconGravity="top"
-            app:iconSize="28dp"
+            app:iconSize="34dp"
             app:layout_constraintStart_toStartOf="@+id/buttonFacts"
             app:layout_constraintTop_toBottomOf="@+id/buttonFacts" />
 
         <Button
-            android:id="@+id/butttonTest6"
+            android:id="@+id/buttonAtractions"
             android:layout_width="162dp"
             android:layout_height="85dp"
             android:layout_marginTop="40dp"
             android:layout_weight="1"
-            android:drawableTop="@android:drawable/btn_star_big_on"
-            android:text="@string/buttonTest"
+            android:backgroundTint="#5B0C8E"
+            android:text="@string/buttonAtractions"
+            app:iconGravity="top"
+            app:iconSize="34dp"
+            app:layout_constraintStart_toStartOf="@+id/buttonForum"
+            app:layout_constraintTop_toBottomOf="@+id/buttonForum" />
+
+        <Button
+            android:id="@+id/buttonFAQ"
+            android:layout_width="162dp"
+            android:layout_height="85dp"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:backgroundTint="#777676"
+            android:drawableTop="@android:drawable/ic_menu_help"
+            android:text="@string/buttonFAQ"
+            app:iconGravity="end"
+            app:layout_constraintStart_toStartOf="@+id/buttonAtractions"
+            app:layout_constraintTop_toBottomOf="@+id/buttonAtractions" />
+
+        <Button
+            android:id="@+id/buttonNews"
+            android:layout_width="162dp"
+            android:layout_height="85dp"
+            android:layout_weight="1"
+            android:backgroundTint="#D060E3"
+            android:text="@string/buttonNews"
+            app:iconGravity="top"
+            app:iconSize="34dp"
+            app:layout_constraintStart_toStartOf="@+id/buttonCalculatorMetrics"
+            app:layout_constraintTop_toTopOf="@+id/buttonAtractions" />
+
+        <Button
+            android:id="@+id/buttonContact"
+            android:layout_width="162dp"
+            android:layout_height="85dp"
+            android:layout_weight="1"
+            android:drawableTop="@android:drawable/ic_menu_call"
+            android:text="@string/buttonContact"
+            app:iconGravity="textEnd"
+            app:iconSize="34dp"
+            app:layout_constraintStart_toStartOf="@+id/buttonNews"
+            app:layout_constraintTop_toTopOf="@+id/buttonFAQ" />
+
+        <Button
+            android:id="@+id/buttonCalculatorMetrics"
+            android:layout_width="162dp"
+            android:layout_height="85dp"
+            android:layout_weight="1"
+            android:backgroundTint="#8F5916"
+            android:text="@string/buttonCalculatorMetrics"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/buttonPhoto"
-            app:layout_constraintTop_toBottomOf="@+id/buttonFacts" />
+            app:layout_constraintTop_toTopOf="@+id/buttonForum" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="264dp"
             android:layout_height="175dp"
-            android:layout_marginStart="60dp"
+            android:layout_marginStart="72dp"
             android:layout_marginTop="40dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/butttonTest5"
+            app:layout_constraintTop_toBottomOf="@+id/buttonFAQ"
             app:srcCompat="@drawable/flag_chicago" />
 
         <TextView
@@ -116,6 +176,17 @@
             android:layout_marginTop="28dp"
             android:text="TextView"
             android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="351dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="36dp"
+            android:text="App developed by Rafael Ines Guillen for the course of Open-Source Intelligent Device Applications (IIT)"
+            android:textAlignment="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
