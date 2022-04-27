@@ -5,7 +5,7 @@
 
 
     <string name="main_quiz">Quiz</string>
-    <string name="main_facts">Chicago Facts</string>
+    <string name="main_events">Chicago Events</string>
     <string name="main_weather">Weather</string>
     <string name="main_photos">Art Institute Photos</string>
 
@@ -14,7 +14,7 @@
     <string name="quiz_btn_display">Check Question</string>
     <string name="buttonForum">Forum</string>
     <string name="buttonCalculatorMetrics">Convert Imperial-Metric</string>
-    <string name="buttonAtractions">Attractions Hours</string>
+    <string name="buttonAttractions">Attractions Hours</string>
     <string name="buttonNews">Chicago News</string>
     <string name="buttonFAQ">F.A.Q.</string>
     <string name="buttonContact">Contact us!</string>

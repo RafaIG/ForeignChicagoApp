@@ -2,12 +2,10 @@ package com.example.foreignchicagoapp;
 
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,8 +21,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class PhotoActivity  extends AppCompatActivity {
-
-    //https://www.artic.edu/iiif/2/1adf2696-8489-499b-cad2-821d7fde4b33/full/843,/0/default.jpg
 
     private ImageView randomImage;
     private Button buttonReload;
@@ -45,7 +41,7 @@ public class PhotoActivity  extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        title = (TextView) findViewById(R.id.textTitle);
+        title = (TextView) findViewById(R.id.textEvent);
 
         randomImage = (ImageView) findViewById(R.id.imageRandom);
         randomImage.setImageResource(R.drawable.image_placeholder);
@@ -57,7 +53,7 @@ public class PhotoActivity  extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        buttonReload = (Button) findViewById(R.id.buttonReloadImage);
+        buttonReload = (Button) findViewById(R.id.buttonReload);
         buttonReload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

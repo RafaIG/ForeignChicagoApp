@@ -28,6 +28,7 @@ public class QuizActivity extends AppCompatActivity {
 
     TextView txtView;
     TextView textTimer;
+    ImageView imageNext;
 
     ArrayList<Question> questionList = new ArrayList<Question>();
     private boolean[] correctAnswers = new boolean[]{false, false, false, false, false};
@@ -63,6 +64,8 @@ public class QuizActivity extends AppCompatActivity {
 
         txtView = findViewById(R.id.textView1);
         txtView.setText(questionList.get(0).getQuestion());
+
+        imageNext = findViewById(R.id.imageNext);
 
         thread = new Thread() {
             @Override
@@ -174,7 +177,7 @@ public class QuizActivity extends AppCompatActivity {
 
     public void imageListener() {
 
-        image = findViewById(R.id.imageView1);
+        image = findViewById(R.id.imageNext);
         image.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -185,8 +188,9 @@ public class QuizActivity extends AppCompatActivity {
                     findViewById(R.id.ratingBar).setVisibility(View.INVISIBLE);
                     questionNum = 0;
                     Collections.shuffle(questionList);
-                    txtView.setText(questionList.get(++questionNum).getQuestion());
+                    txtView.setText(questionList.get(questionNum).getQuestion());
                     radioQuestions.check(R.id.radioTrue);
+                    imageNext.setImageResource(R.drawable.quiz_next);
                 }
                 else {
                     int selectedId = radioQuestions.getCheckedRadioButtonId();
@@ -206,6 +210,7 @@ public class QuizActivity extends AppCompatActivity {
                                         System.currentTimeMillis() - start) +
                                 "\nPlease click in the next icon to start again the quiz.");
                         questionNum++;
+                        imageNext.setImageResource(R.drawable.quiz_restart);
                     } else {
                         txtView.setText(questionList.get(++questionNum).getQuestion());
                         //reset radio button (radioTrue) to default

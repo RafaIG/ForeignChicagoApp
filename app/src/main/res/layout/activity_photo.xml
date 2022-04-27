@@ -15,7 +15,7 @@
     android:backgroundTint="@color/mainBackground">
 
     <TextView
-        android:id="@+id/textTitle"
+        android:id="@+id/textEvent"
         android:layout_width="259dp"
         android:layout_height="56dp"
         android:layout_marginStart="16dp"
@@ -37,17 +37,17 @@
         android:layout_marginTop="16dp"
         android:scaleType="fitStart"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textEvent"
         app:srcCompat="@drawable/flag_chicago" />
 
     <Button
-        android:id="@+id/buttonReloadImage"
+        android:id="@+id/buttonReload"
         android:layout_width="111dp"
         android:layout_height="63dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="New Artwork"
-        app:layout_constraintStart_toEndOf="@+id/textTitle"
+        app:layout_constraintStart_toEndOf="@+id/textEvent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

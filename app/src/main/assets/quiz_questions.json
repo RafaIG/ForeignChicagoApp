@@ -41,6 +41,26 @@
     {
       "result": true,
       "question": "Chicago was founded in 1833"
+    },
+    {
+      "result": true,
+      "question": "Chicago bulls has won 6 Championships"
+    },
+    {
+      "result": false,
+      "question": "Chicago bulls stadium is Wrigley Field"
+    },
+    {
+      "result": true,
+      "question": "Chicago cubs has won 3 World Series titles"
+    },
+    {
+      "result": true,
+      "question": "Chicago cubs and Chicago White has the same number of titles Sox World Series titles"
+    },
+    {
+      "result": false,
+      "question": "Chicago Blackhawks is the main Football team of Chicago"
     }
   ]
 }

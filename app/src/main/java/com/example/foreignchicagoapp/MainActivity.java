@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button buttonQuiz, buttonWeather, buttonPhotos, buttonCalculatorMetrics;
+    private Button buttonQuiz, buttonWeather, buttonPhotos, buttonCalculatorMetrics, buttonEvents;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +40,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         buttonCalculatorMetrics = (Button) findViewById(R.id.buttonCalculatorMetrics);
         buttonCalculatorMetrics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), CalculatorActivity.class));
+            }
+        });
+
+        buttonEvents = (Button) findViewById(R.id.buttonEvents);
+        buttonEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ActivitiesActivity.class));
             }
         });
     }

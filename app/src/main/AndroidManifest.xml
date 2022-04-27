@@ -48,6 +48,10 @@
             android:name=".CalculatorActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".ActivitiesActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

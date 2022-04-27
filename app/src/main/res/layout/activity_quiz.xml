@@ -10,11 +10,14 @@
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="85dp"
         android:width="400dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:textSize="16sp" />
+        android:autoSizeMaxTextSize="20sp"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"/>
 
     <RadioGroup
         android:id="@+id/radioQuestions"
@@ -58,7 +61,7 @@
         android:stepSize="1.0" />
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imageNext"
         android:layout_width="match_parent"
         android:layout_height="81dp"
         android:clickable="true"
