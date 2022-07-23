@@ -13,6 +13,12 @@
     <color name="mainTheme">#2A4f29</color>
     <color name="secondTheme">#224021</color>
 
+    <color name="background">#BADCBA</color>
+    <color name="background2">#FF629E5B</color>
+    <color name="textColor">#1F301C</color>
+    <color name="hintColor">#2A4f29</color>
 
+    <color name="selectunit">#FF629E5B</color>
+    <color name="convertUnit">#FF629E5B</color>
 
 </resources>

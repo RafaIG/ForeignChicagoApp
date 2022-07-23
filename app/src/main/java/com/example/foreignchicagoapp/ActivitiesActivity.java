@@ -1,11 +1,14 @@
 package com.example.foreignchicagoapp;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,6 +23,7 @@ import java.net.URL;
 import java.text.ParseException;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class ActivitiesActivity extends AppCompatActivity {
 
@@ -28,11 +32,14 @@ public class ActivitiesActivity extends AppCompatActivity {
     private TextView title, organization, category, capacity, url, description;
     JSONArray json;
 
-    int limit = 2;
+    int limit = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        new MyTask().execute("https://data.cityofchicago.org/resource/w22p-bfyb.json?program_type=workshop&min_age=18");
+
         setContentView(R.layout.activity_activities);
 
         title = (TextView) findViewById(R.id.textEvent);
@@ -44,14 +51,6 @@ public class ActivitiesActivity extends AppCompatActivity {
 
         randomImage = (ImageView) findViewById(R.id.imageRandom);
         randomImage.setVisibility(View.INVISIBLE);
-
-        try {
-            json = getJsonObject("https://data.cityofchicago.org/resource/w22p-bfyb.json?program_type=workshop&min_age=14");
-            limit = json.length() - 1;
-            setRandomEvent();
-        } catch (JSONException | IOException | ParseException e) {
-            e.printStackTrace();
-        }
 
         buttonReload = (Button) findViewById(R.id.buttonReload);
         buttonReload.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +64,49 @@ public class ActivitiesActivity extends AppCompatActivity {
                 }
             }
         });
+
+        Toast.makeText(getApplicationContext(), "Loading events! Please wait", Toast.LENGTH_LONG).show();
+
+        //SystemClock.sleep(6000);
     }
+
+    /*@Override
+    protected void onStart() {
+        super.onStart();
+        while (limit == -1) {
+        }
+
+        try {
+            setRandomEvent();
+        } catch (JSONException | ParseException e) {
+            e.printStackTrace();
+        }
+    }*/
+
+    private class MyTask extends AsyncTask<String, String, String> {
+            @Override
+            protected void onPreExecute() {
+            }
+
+            @Override
+            protected String doInBackground(String... params) {
+                try {
+                    json = getJsonObject("https://data.cityofchicago.org/resource/w22p-bfyb.json?program_type=workshop&min_age=18");
+                    limit = json.length() - 1;
+                } catch (JSONException | IOException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+            protected void onPostExecute(String result) {
+                try {
+                    setRandomEvent();
+                } catch (JSONException | ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
 
     private void setRandomEvent() throws JSONException, ParseException {
         int random = new Random().nextInt(limit);

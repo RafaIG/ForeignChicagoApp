@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.foreignchicagoapp">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -11,9 +14,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ForeignChicagoApp">
-        <activity
-            android:name=".extra.ProfileActivity"
-            android:exported="false" />
 
         <activity
             android:name=".LoginActivity"
@@ -52,6 +52,73 @@
             android:name=".ActivitiesActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".DealsActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".NewsActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".WebActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".CallsActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".torque_cal"
+            android:exported="true" />
+        <activity
+            android:name=".power_cal"
+            android:exported="true" />
+        <activity
+            android:name=".resistance_cal"
+            android:exported="true" />
+        <activity
+            android:name=".freq_cal"
+            android:exported="true" />
+        <activity
+            android:name=".force_cal"
+            android:exported="true" />
+        <activity
+            android:name=".current_cal"
+            android:exported="true" />
+        <activity
+            android:name=".storage_cal"
+            android:exported="true" />
+        <activity
+            android:name=".energy_cal"
+            android:exported="true" />
+        <activity
+            android:name=".pressure_cal"
+            android:exported="true" />
+        <activity
+            android:name=".fuel_cal"
+            android:exported="true" />
+        <activity
+            android:name=".area_cal"
+            android:exported="true" />
+        <activity
+            android:name=".time_cal"
+            android:exported="true" />
+        <activity
+            android:name=".volume_cal"
+            android:exported="true" />
+        <activity
+            android:name=".speed_cal"
+            android:exported="true" />
+        <activity
+            android:name=".length_cal"
+            android:exported="true" />
+        <activity
+            android:name=".weight_cal"
+            android:exported="true" />
+        <activity
+            android:name=".temp_cal"
+            android:exported="true" />
     </application>
 
 </manifest>

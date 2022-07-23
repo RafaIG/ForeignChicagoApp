@@ -41,11 +41,11 @@
         <LinearLayout
             android:id="@+id/overviewContainer"
             android:layout_width="match_parent"
-            android:layout_height="256dp"
+            android:layout_height="283dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="142dp"
-            android:layout_marginBottom="283dp"
+            android:layout_marginTop="111dp"
+            android:layout_marginBottom="287dp"
             android:orientation="vertical">
 
             <TextView
@@ -67,25 +67,32 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/temp_min"
-                    android:layout_width="wrap_content"
+                    android:layout_width="114dp"
                     android:layout_height="wrap_content"
-                    android:text="Min Temp: 05:05 AM" />
-
-                <Space
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content" />
+                    android:text="Min Temp: 05:05 AM"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/temp_max"
+                    android:layout_width="116dp"
+                    android:layout_height="wrap_content"
+                    android:text="Max Temp: 05:05 PM"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/temp_fahrenheit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Max Temp: 05:05 PM" />
+                    android:layout_weight="1"
+                    android:text="Fahrenheit: 05:05 PM"
+                    android:textAlignment="center" />
+
             </LinearLayout>
 
         </LinearLayout>
@@ -93,10 +100,11 @@
         <LinearLayout
             android:id="@+id/detailsContainer"
             android:layout_width="match_parent"
-            android:layout_height="285dp"
+            android:layout_height="305dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="396dp"
+            android:layout_marginTop="409dp"
+            android:layout_marginBottom="-13dp"
             android:orientation="vertical">
 
             <LinearLayout

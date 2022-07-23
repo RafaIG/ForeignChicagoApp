@@ -17,11 +17,10 @@ import java.util.Locale;
 public class WeatherActivity  extends AppCompatActivity {
 
     String CITY = "chicago,us";
-    //String CITY = "dhaka,bd";
     String API = "8118ed6ee68db2debfaaa5a44c832918";
 
     TextView addressTxt, updated_atTxt, statusTxt, tempTxt, temp_minTxt, temp_maxTxt, sunriseTxt,
-            sunsetTxt, windTxt, pressureTxt, humidityTxt;
+            sunsetTxt, windTxt, pressureTxt, humidityTxt, temp_fahrenheit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +39,9 @@ public class WeatherActivity  extends AppCompatActivity {
         pressureTxt = findViewById(R.id.pressure);
         humidityTxt = findViewById(R.id.humidity);
 
+
+        temp_fahrenheit = findViewById(R.id.temp_fahrenheit);
+
         new weatherTask().execute();
 
     }
@@ -57,7 +59,6 @@ public class WeatherActivity  extends AppCompatActivity {
         }
 
         protected String doInBackground(String... args) {
-            //String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API);
             String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API);
             return response;
         }
@@ -101,6 +102,9 @@ public class WeatherActivity  extends AppCompatActivity {
                 windTxt.setText(windSpeed);
                 pressureTxt.setText(pressure);
                 humidityTxt.setText(humidity);
+
+                String tempFahrenheit = "Fahrenheit temp: " + (main.getInt("temp") * 9/5 + 32) + "°F";
+                temp_fahrenheit.setText(tempFahrenheit);
 
                 /* Views populated, Hiding the loader, Showing the main design */
                 findViewById(R.id.loader).setVisibility(View.GONE);

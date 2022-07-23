@@ -13,9 +13,12 @@
     <string name="quiz_radio_false">False</string>
     <string name="quiz_btn_display">Check Question</string>
     <string name="buttonForum">Forum</string>
-    <string name="buttonCalculatorMetrics">Convert Imperial-Metric</string>
+    <string name="buttonCalculatorMetrics">Unit Converter</string>
     <string name="buttonAttractions">Attractions Hours</string>
     <string name="buttonNews">Chicago News</string>
-    <string name="buttonFAQ">F.A.Q.</string>
-    <string name="buttonContact">Contact us!</string>
+    <string name="buttonFAQ">Deals / Tips</string>
+    <string name="buttonContact">Emergency!</string>
+
+    <string name="buttonEmergency">Emergency call!</string>
+    <string name="buttonNonEmergency">Non Emergency call</string>
 </resources>

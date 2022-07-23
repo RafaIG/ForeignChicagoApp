@@ -9,7 +9,8 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button buttonQuiz, buttonWeather, buttonPhotos, buttonCalculatorMetrics, buttonEvents;
+    private Button buttonQuiz, buttonWeather, buttonPhotos, buttonCalculatorMetrics,
+            buttonEvents, buttonNews, buttonCalls, buttonDeals;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,29 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), ActivitiesActivity.class));
             }
         });
-    }
 
-    //startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        buttonNews = (Button) findViewById(R.id.buttonNews);
+        buttonNews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), NewsActivity.class));
+            }
+        });
+
+        buttonCalls = (Button) findViewById(R.id.buttonCalls);
+        buttonCalls.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), CallsActivity.class));
+            }
+        });
+
+        buttonDeals = (Button) findViewById(R.id.buttonDeals);
+        buttonDeals.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), DealsActivity.class));
+            }
+        });
+    }
 }
